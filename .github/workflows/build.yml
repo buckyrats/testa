@@ -1,0 +1,24 @@
+name: Install Axios
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  install-axios:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js and npm
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Install Axios
+        run: npm install axios
